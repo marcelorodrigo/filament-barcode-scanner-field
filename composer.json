@@ -57,6 +57,8 @@
         "lint": "pint",
         "refactor": "rector",
         "test": "pest",
+        "test:ci": "vendor/bin/pest --configuration=phpunit.ci.xml --ci",
+        "test:coverage": "vendor/bin/pest --configuration=phpunit.ci.xml --ci --coverage",
         "test:lint": "pint --test",
         "test:refactor": "rector --dry-run"
     },

@@ -21,7 +21,13 @@
         </testsuite>
     </testsuites>
 
-    <!-- Coverage intentionally removed to avoid requiring a code coverage driver when running tests locally. -->
+    <coverage>
+        <report>
+            <html outputDirectory="build/coverage"/>
+            <text outputFile="build/coverage.txt"/>
+            <clover outputFile="build/logs/clover.xml"/>
+        </report>
+    </coverage>
 
     <logging>
         <junit outputFile="build/report.junit.xml"/>
@@ -32,3 +38,4 @@
         </include>
     </source>
 </phpunit>
+
