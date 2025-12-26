@@ -67,5 +67,5 @@ The following methods in the service provider return empty arrays; populate when
 - `getRoutes()`: Return route definitions if adding endpoints
 - `getScriptData()`: Return script data for FilamentAsset::registerScriptData()
 - `getMigrations()`: Return migration files (currently empty, no migrations used)
-- `getCommands()`: Returns [FilamentBarcodeScannerFieldCommand](../src/Commands/FilamentBarcodeScannerFieldCommand.php) (in `.gitkeep` state)
+- `getCommands()`: Returns empty (no custom commands currently)
 - For local package testing, rely on Testbench workbench setup from [tests/TestCase.php](../tests/TestCase.php); database defaults to `testing` connection.

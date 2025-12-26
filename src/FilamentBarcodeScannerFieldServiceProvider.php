@@ -10,7 +10,6 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
-use Marcelorodrigo\FilamentBarcodeScannerField\Commands\FilamentBarcodeScannerFieldCommand;
 use Marcelorodrigo\FilamentBarcodeScannerField\Testing\TestsFilamentBarcodeScannerField;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
@@ -31,7 +30,7 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
          */
         $package->name(static::$name)
             ->hasCommands($this->getCommands())
-            ->hasInstallCommand(function (InstallCommand $command) {
+            ->hasInstallCommand(function (InstallCommand $command): void {
                 $command
                     ->publishConfigFile()
                     ->publishMigrations()
@@ -41,7 +40,7 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
 
         $configFileName = $package->shortName();
 
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
+        if (file_exists($package->basePath(sprintf('/../config/%s.php', $configFileName)))) {
             $package->hasConfigFile();
         }
 
@@ -80,7 +79,7 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
         if (app()->runningInConsole()) {
             foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
                 $this->publishes([
-                    $file->getRealPath() => base_path("stubs/filament-barcode-scanner-field/{$file->getFilename()}"),
+                    $file->getRealPath() => base_path('stubs/filament-barcode-scanner-field/' . $file->getFilename()),
                 ], 'filament-barcode-scanner-field-stubs');
             }
         }
@@ -112,9 +111,7 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
      */
     protected function getCommands(): array
     {
-        return [
-            FilamentBarcodeScannerFieldCommand::class,
-        ];
+        return [];
     }
 
     /**
