@@ -46,5 +46,7 @@ const defaultOptions = {
 compile({
     ...defaultOptions,
     entryPoints: ['./resources/js/index.js'],
-    outfile: './resources/dist/skeleton.js',
+    outfile: './resources/dist/filament-barcode-scanner-field.js',
+}).then(() => {
+    console.log(`Build completed for filament-barcode-scanner-field.js`)
 })
