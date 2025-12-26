@@ -10,11 +10,11 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use Marcelorodrigo\FilamentBarcodeScannerField\Commands\FilamentBarcodeScannerFieldCommand;
+use Marcelorodrigo\FilamentBarcodeScannerField\Testing\TestsFilamentBarcodeScannerField;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Marcelorodrigo\FilamentBarcodeScannerField\Commands\FilamentBarcodeScannerFieldCommand;
-use Marcelorodrigo\FilamentBarcodeScannerField\Testing\TestsFilamentBarcodeScannerField;
 
 class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
 {

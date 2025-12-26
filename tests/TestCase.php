@@ -16,10 +16,10 @@ use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Livewire\LivewireServiceProvider;
+use Marcelorodrigo\FilamentBarcodeScannerField\FilamentBarcodeScannerFieldServiceProvider;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
-use Marcelorodrigo\FilamentBarcodeScannerField\FilamentBarcodeScannerFieldServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -31,7 +31,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn(string $modelName) => 'Marcelorodrigo\\FilamentBarcodeScannerField\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'Marcelorodrigo\\FilamentBarcodeScannerField\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
