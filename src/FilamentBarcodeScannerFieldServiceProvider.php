@@ -146,8 +146,6 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
      */
     protected function getMigrations(): array
     {
-        return [
-            'create_filament-barcode-scanner-field_table',
-        ];
+        return [];
     }
 }
