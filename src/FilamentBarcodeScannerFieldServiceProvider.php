@@ -58,7 +58,9 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void {}
+    public function packageRegistered(): void {
+
+    }
 
     public function packageBooted(): void
     {
@@ -103,6 +105,7 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
             // AlpineComponent::make('filament-barcode-scanner-field', __DIR__ . '/../resources/dist/components/filament-barcode-scanner-field.js'),
             // Css::make('filament-barcode-scanner-field-styles', __DIR__ . '/../resources/dist/filament-barcode-scanner-field.css'),
             // Js::make('filament-barcode-scanner-field-scripts', __DIR__ . '/../resources/dist/filament-barcode-scanner-field.js'),
+            Js::make('filament-barcode-scanner-field', __DIR__ . '/../resources/dist/filament-barcode-scanner-field.js'),
         ];
     }
 
