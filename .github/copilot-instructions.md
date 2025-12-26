@@ -54,7 +54,7 @@ This is a **Laravel/Filament 4 Barcode Scanner Field** package. It provides a re
 - `composer test:refactor`: Run Rector in dry-run mode
 
 ## Composer & NPM Configurations
-- **PHP**: ^8.2
+- **PHP**: ^8.3
 - **Filament**: Forms ^4.0
 - **Spatie Package Tools**: ^1.15.0
 - **Dev Dependencies**: PHPStan, Pint, Rector, Pest, Livewire testing plugins, Orchestra Testbench ^10.0, Blade UI Kit, Laravel Ray
