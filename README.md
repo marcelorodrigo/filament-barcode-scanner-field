@@ -64,6 +64,11 @@ BarcodeInput::make('barcode')
 composer test
 ```
 
+## Versioning
+
+This project follows **[Semantic Versioning (SemVer) 2.0.0](https://semver.org/)** and adheres to **[Conventional Commits](https://www.conventionalcommits.org/)**.
+
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

@@ -50,6 +50,8 @@ If the project maintainer has any additional requirements, you will find them li
 
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 
+- **[Conventional Commits](https://www.conventionalcommits.org/)** - All commits must follow the Conventional Commits specification. This ensures clear commit history and enables automatic changelog generation. Use the format: `<type>(<scope>): <subject>` (e.g., `feat(barcode-input): add camera selection option`, `fix(scanner): resolve modal closure issue`).
+
 - **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
 
 **Happy coding**!

@@ -69,3 +69,7 @@ The following methods in the service provider return empty arrays; populate when
 - `getMigrations()`: Return migration files (currently empty, no migrations used)
 - `getCommands()`: Returns empty (no custom commands currently)
 - For local package testing, rely on Testbench workbench setup from [tests/TestCase.php](../tests/TestCase.php); database defaults to `testing` connection.
+
+## Versioning & Commits
+- This project uses semver.org for versioning.
+- Follow Conventional Commits specification for commit messages.
