@@ -15,17 +15,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: main
-
+          ref: master
+          show-progress: 'false'
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
         with:
           latest-version: ${{ github.event.release.name }}
           release-notes: ${{ github.event.release.body }}
-
       - name: Commit updated CHANGELOG
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
-          branch: main
+          branch: master
           commit_message: Update CHANGELOG
           file_pattern: CHANGELOG.md

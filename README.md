@@ -1,47 +1,35 @@
-# :package_description
+# Filament Barcode Scanner Input Field
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/marcelorodrigo/filament-barcode-scanner-field.svg?style=flat-square)](https://packagist.org/packages/marcelorodrigo/filament-barcode-scanner-field)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/marcelorodrigo/filament-barcode-scanner-field/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/marcelorodrigo/filament-barcode-scanner-field/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/marcelorodrigo/filament-barcode-scanner-field/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/marcelorodrigo/filament-barcode-scanner-field/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/marcelorodrigo/filament-barcode-scanner-field.svg?style=flat-square)](https://packagist.org/packages/marcelorodrigo/filament-barcode-scanner-field)
 
-<!--delete-->
----
-This repo can be used to scaffold a Filament plugin. Follow these steps to get started:
+The Filament Barcode Scanner Input package offers a user-friendly barcode input field for your Filament applications. This component supports dynamic scanning, enabling users to input barcodes seamlessly. With a modal popup interface and customizable icons, the Filament Barcode Scanner Input package ensures an efficient and aesthetically pleasing user experience for barcode entry in your application.
 
-1. Press the "Use this template" button at the top of this repo to create a new repo with the contents of this skeleton.
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files.
-3. Make something great!
----
-<!--/delete-->
+## Features
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Installation
+- **Modal Popup**: The component opens a modal popup for barcode scanning, providing a dedicated interface for users to scan and input barcodes without cluttering the main form.
+- **Customizable Icon**: Users can customize the input field with their own Heroicons, enhancing the visual appeal and allowing for better integration with existing designs.
+- **Responsive Design**: Optimized for use on various devices, ensuring a seamless experience across desktop and mobile.
+- **Easy Integration**: Simple to integrate into your existing Filament forms with minimal configuration.
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag=":package_slug-migrations"
-php artisan migrate
+composer require marcelorodrigo/filament-barcode-scanner-field
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag=":package_slug-config"
+php artisan vendor:publish --tag="filament-barcode-scanner-field-config"
 ```
 
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag=":package_slug-views"
+php artisan vendor:publish --tag="filament-barcode-scanner-field-views"
 ```
 
 This is the contents of the published config file:
@@ -53,16 +41,33 @@ return [
 
 ## Usage
 
+Once installed, you can use the BarcodeInput component in your Filament forms:
+
 ```php
-$variable = new VendorName\Skeleton();
-echo $variable->echoPhrase('Hello, VendorName!');
+use Marcelorodrigo\FilamentBarcodeScannerField\Forms\Components\BarcodeInput;
+
+// In your form definition
+BarcodeInput::make('barcode')
+    ->icon('heroicon-o-arrow-right') // Specify your Heroicon name here
+    ->required(),
 ```
+
+### Available Options
+
+- `icon()` - Set a custom [Heroicon](https://heroicons.com/) for the input field (e.g., `'heroicon-o-arrow-right'`, `'heroicon-o-qrcode'`)
+- `required()` - Make the barcode input required
+- All standard Filament field methods are supported
 
 ## Testing
 
 ```bash
 composer test
 ```
+
+## Versioning
+
+This project follows **[Semantic Versioning (SemVer) 2.0.0](https://semver.org/)** and adheres to **[Conventional Commits](https://www.conventionalcommits.org/)**.
+
 
 ## Changelog
 
@@ -78,7 +83,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Marcelo Wiebbelling](https://github.com/marcelorodrigo)
 - [All Contributors](../../contributors)
 
 ## License
