@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Barcode Scanner</title>
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body class="bg-gray-50">
+<div class="p-8 max-w-2xl mx-auto">
+  <div x-data="barcodeScanner()" class="space-y-4">
+    <!-- Input Field with Scan Button -->
+    <div class="bg-white p-6 rounded-lg shadow">
+      <label for="barcode-input" class="block text-sm font-medium text-gray-700 mb-2">
+        EAN-13 Barcode
+      </label>
+      <div class="relative">
+        <input
+          type="text"
+          id="barcode-input"
+          x-model="barcodeValue"
+          placeholder="Click scan button to scan barcode"
+          class="w-full px-4 py-2 pr-12 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          readonly
+        />
+        <button
+          @click="openModal()"
+          class="absolute right-1 top-1/2 transform -translate-y-1/2 p-2 text-gray-500 hover:text-blue-600 transition"
+          title="Scan barcode"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      x-show="modalOpen"
+      x-cloak
+      @keydown.escape.window="closeModal()"
+      class="fixed inset-0 z-50 overflow-y-auto"
+      style="display: none;"
+    >
+      <!-- Backdrop -->
+      <div
+        class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+        @click="closeModal()"
+      ></div>
+
+      <!-- Modal Content -->
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div
+          @click.away="closeModal()"
+          class="relative bg-white rounded-lg shadow-xl max-w-2xl w-full p-6"
+        >
+          <!-- Modal Header -->
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-gray-900">Scan EAN-13 Barcode</h3>
+            <button
+              @click="closeModal()"
+              class="text-gray-400 hover:text-gray-600 transition"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Camera Selector (if multiple cameras) -->
+          <div x-show="cameras.length > 1" class="mb-4">
+            <label for="camera-select" class="block text-sm font-medium text-gray-700 mb-2">
+              Select Camera:
+            </label>
+            <select
+              id="camera-select"
+              x-model="selectedCamera"
+              @change="switchCamera()"
+              class="w-full px-3 py-2 border border-gray-300 rounded bg-white text-sm hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <template x-for="(camera, index) in cameras" :key="camera.id">
+                <option :value="camera.id" x-text="camera.label || `Camera ${index + 1}`"></option>
+              </template>
+            </select>
+          </div>
+
+          <!-- Scanner Container -->
+          <div id="qr-reader" class="w-full rounded overflow-hidden"></div>
+
+          <!-- Status Messages -->
+          <div x-show="statusMessage" class="mt-4 p-3 rounded" :class="statusType === 'success' ? 'bg-green-50 text-green-800' : 'bg-yellow-50 text-yellow-800'">
+            <p class="text-sm font-mono" x-text="statusMessage"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  [x-cloak] { display: none !important; }
+</style>
+
+<script>
+  function barcodeScanner() {
+    return {
+      barcodeValue: '',
+      modalOpen: false,
+      cameras: [],
+      selectedCamera: null,
+      html5QrCode: null,
+      scannerRunning: false,
+      statusMessage: '',
+      statusType: 'info',
+
+      init() {
+        // Initialize the Html5Qrcode instance
+        this.html5QrCode = new Html5Qrcode('qr-reader');
+      },
+
+      onScanSuccess(decodedText, decodedResult) {
+        console.log('Code scanned =', decodedText, decodedResult);
+
+        // Accept any barcode without validation
+        this.barcodeValue = decodedText;
+        this.statusMessage = `Barcode scanned: ${decodedText}`;
+        this.statusType = 'success';
+
+        // Close modal after a short delay to show the success message
+        setTimeout(() => {
+          this.closeModal();
+        }, 500);
+      },
+
+      getQrBoxFunction() {
+        // Rectangle QR box optimized for EAN-13 barcodes (wider than tall)
+        return function(viewfinderWidth, viewfinderHeight) {
+          let width = Math.floor(viewfinderWidth * 0.7);
+          let height = Math.floor(viewfinderHeight * 0.3);
+          return { width, height };
+        };
+      },
+
+      getConfig() {
+        return {
+          fps: 10,
+          qrbox: this.getQrBoxFunction(),
+          formatsToSupport: [Html5QrcodeSupportedFormats.EAN_13]
+        };
+      },
+
+      async startScanner(cameraId) {
+        if (this.scannerRunning) {
+          await this.stopScanner();
+        }
+
+        try {
+          await this.html5QrCode.start(
+            cameraId,
+            this.getConfig(),
+            (decodedText, decodedResult) => this.onScanSuccess(decodedText, decodedResult),
+            () => {
+              // scan failure or partial read callback (ignored)
+            }
+          );
+          this.scannerRunning = true;
+          this.statusMessage = '';
+        } catch (err) {
+          console.error('Unable to start scanning', err);
+          this.statusMessage = 'Failed to start scanner: ' + err.message;
+          this.statusType = 'error';
+        }
+      },
+
+      async stopScanner() {
+        if (this.scannerRunning) {
+          try {
+            await this.html5QrCode.stop();
+            this.scannerRunning = false;
+            console.log('Scanner stopped');
+          } catch (err) {
+            console.warn('Failed to stop scanner', err);
+          }
+        }
+      },
+
+      async initializeCameras() {
+        try {
+          const cameras = await Html5Qrcode.getCameras();
+
+          if (!cameras || cameras.length === 0) {
+            console.error('No cameras found');
+            this.statusMessage = 'No cameras found on this device';
+            this.statusType = 'error';
+            return;
+          }
+
+          this.cameras = cameras;
+          this.selectedCamera = cameras[0].id;
+
+          console.log(`${cameras.length} camera(s) found`);
+
+          // Start scanning with the first camera
+          await this.startScanner(this.selectedCamera);
+        } catch (err) {
+          console.error('Error getting cameras', err);
+          this.statusMessage = 'Error accessing cameras: ' + err.message;
+          this.statusType = 'error';
+        }
+      },
+
+      async switchCamera() {
+        if (this.selectedCamera) {
+          await this.startScanner(this.selectedCamera);
+        }
+      },
+
+      async openModal() {
+        this.modalOpen = true;
+        this.statusMessage = '';
+
+        // Wait for the modal DOM to be ready
+        await this.$nextTick();
+
+        // Initialize cameras and start scanning
+        await this.initializeCameras();
+      },
+
+      async closeModal() {
+        await this.stopScanner();
+        this.modalOpen = false;
+        this.statusMessage = '';
+      }
+    };
+  }
+</script>
+</body>
+</html>
