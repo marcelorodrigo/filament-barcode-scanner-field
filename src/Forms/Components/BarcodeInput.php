@@ -3,6 +3,7 @@
 namespace Marcelorodrigo\FilamentBarcodeScannerField\Forms\Components;
 
 use Filament\Forms\Components\TextInput;
+use Illuminate\Contracts\Support\Htmlable;
 
 class BarcodeInput extends TextInput
 {
@@ -11,7 +12,13 @@ class BarcodeInput extends TextInput
     protected function setUp(): void
     {
         parent::setUp();
-        $this->placeholder('Enter ' . strtolower($this->getLabel()) . '...');
+
+        $label = $this->getLabel() ?? 'Barcode';
+        if ($label instanceof Htmlable) {
+            $label = $label->toHtml();
+        }
+        $label = strtolower((string) $label);
+        $this->placeholder('Enter ' . $label . '...');
     }
 
     public function icon(string $icon): static
