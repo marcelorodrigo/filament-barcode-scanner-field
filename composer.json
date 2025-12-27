@@ -13,6 +13,7 @@
         "source": "https://github.com/marcelorodrigo/filament-barcode-scanner-field"
     },
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "Marcelo Wiebbelling",
@@ -41,8 +42,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Marcelorodrigo\\FilamentBarcodeScannerField\\": "src/",
-            "Marcelorodrigo\\FilamentBarcodeScannerField\\Database\\Factories\\": "database/factories/"
+            "Marcelorodrigo\\FilamentBarcodeScannerField\\": "src/"
         }
     },
     "autoload-dev": {
