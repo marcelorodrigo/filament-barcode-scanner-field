@@ -29,9 +29,8 @@ This is a **Laravel/Filament 4 Barcode Scanner Field** package. It provides a re
 - `composer analyse`: Run PHPStan (static analysis)
 - `composer refactor`: Run Rector (code refactoring)
 
-## Composer & NPM Configurations
-- **NPM**: ESM mode; esbuild ^0.25.5, Prettier ^3.5.3
-- **esbuild**: Target `es2020`, `platform: neutral`, inline sourcemaps in dev, minified in production, tree-shaking enabled
+## Composer Configuration
+- **Composer**: Manages PHP dependencies for Laravel/Filament development and testing
 The following methods in the service provider return empty arrays; populate when extending functionality:
 - `getIcons()`: Return icon registrations for FilamentIcon
 - `getRoutes()`: Return route definitions if adding endpoints
