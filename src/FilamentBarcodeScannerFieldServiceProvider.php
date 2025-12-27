@@ -48,5 +48,4 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
     {
         return 'marcelorodrigo/filament-barcode-scanner-field';
     }
-
 }
