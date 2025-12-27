@@ -9,6 +9,7 @@ class BarcodeInput extends TextInput
 {
     protected string $view = 'filament-barcode-scanner-field::components.barcode-input';
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -17,6 +18,7 @@ class BarcodeInput extends TextInput
         if ($label instanceof Htmlable) {
             $label = $label->toHtml();
         }
+
         $label = strtolower((string) $label);
         $this->placeholder('Enter ' . $label . '...');
     }

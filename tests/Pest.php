@@ -1,6 +1,5 @@
 <?php
 
-use Livewire\Features\SupportTesting\Testable;
 use Marcelorodrigo\FilamentBarcodeScannerField\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
@@ -16,9 +15,9 @@ uses(TestCase::class)->in(__DIR__);
 |
 */
 
-if (!function_exists('livewire')) {
-    function livewire(string $component, array $data = []) {
+if (! function_exists('livewire')) {
+    function livewire(string $component, array $data = [])
+    {
         return test()->livewire($component, $data);
     }
 }
-

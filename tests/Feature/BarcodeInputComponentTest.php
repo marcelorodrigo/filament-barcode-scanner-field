@@ -126,7 +126,6 @@ describe('BarcodeInput Component', function () {
                 ->and($component->getExtraAttributes()['icon'])->toBe('heroicon-o-qr-code');
         });
 
-
         it('icon method returns static instance for proper chaining', function () {
             $component = BarcodeInput::make('barcode');
             $result = $component->icon('heroicon-o-sparkles');
@@ -136,4 +135,3 @@ describe('BarcodeInput Component', function () {
         });
     });
 });
-

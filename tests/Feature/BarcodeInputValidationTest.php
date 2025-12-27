@@ -132,4 +132,3 @@ describe('BarcodeInput Validation', function () {
         });
     });
 });
-

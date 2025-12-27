@@ -163,7 +163,6 @@ describe('BarcodeInput UI Tests', function () {
             expect($component->isRequired())->toBeTrue();
         });
 
-
         it('supports readonly state for accessibility', function () {
             $component = BarcodeInput::make('barcode')
                 ->readOnly();
@@ -190,4 +189,3 @@ describe('BarcodeInput UI Tests', function () {
         });
     });
 });
-

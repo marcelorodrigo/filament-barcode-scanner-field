@@ -23,7 +23,7 @@
     "require": {
         "php": "^8.3",
         "filament/forms": "^4.0",
-        "spatie/laravel-package-tools": "^1.15.0"
+        "spatie/laravel-package-tools": "^1.92.7"
     },
     "require-dev": {
         "larastan/larastan": "^3.8",
@@ -37,8 +37,7 @@
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
-        "rector/rector": "^2.3",
-        "spatie/laravel-ray": "^1.26"
+        "rector/rector": "^2.3"
     },
     "autoload": {
         "psr-4": {
@@ -54,7 +53,8 @@
     "scripts": {
         "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
         "analyse": "vendor/bin/phpstan analyse --memory-limit=2G",
-        "lint": "pint",
+        "pint": "pint --bail",
+        "pint:fix": "pint --repair",
         "refactor": "rector",
         "test": "pest",
         "test:ci": "vendor/bin/pest --configuration=phpunit.ci.xml --ci",

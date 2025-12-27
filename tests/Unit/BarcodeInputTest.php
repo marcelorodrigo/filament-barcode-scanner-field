@@ -163,4 +163,3 @@ describe('BarcodeInput Unit Tests', function () {
         });
     });
 });
-
