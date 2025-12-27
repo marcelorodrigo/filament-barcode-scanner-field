@@ -46,7 +46,7 @@
         }
     </style>
     <div xmlns:x-filament="http://www.w3.org/1999/html"
-         x-load-js="['https://unpkg.com/html5-qrcode']"
+         x-load-js="['https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js']"
          x-on:close-modal.window="stopScanning()"
          x-data="{
         html5QrcodeScanner: null,
