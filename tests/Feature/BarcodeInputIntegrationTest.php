@@ -45,7 +45,7 @@ describe('BarcodeInput Integration Tests', function () {
         });
     });
 
-    describe('Tailwind CSS Classes', function () {
+    describe('CSS Classes', function () {
         it('renders icon with CSS class', function () {
             livewire(TestBarcodeFormComponent::class)
                 ->assertOk()

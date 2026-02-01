@@ -14,6 +14,7 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
 
     public static string $viewNamespace = 'filament-barcode-scanner-field';
 
+    #[\Override]
     public function packageBooted(): void
     {
         FilamentAsset::register([

@@ -178,6 +178,41 @@ Configured in `rector.php`:
 - Extra attributes passed through `extraAttributes()` method
 - Override `setUp()` for initialization (call `parent::setUp()` first)
 
+### CSS & Asset Management
+
+Package assets are managed via Filament's Asset Manager:
+
+**Automatic CSS Loading:**
+```php
+// In service provider
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
+
+public function packageBooted(): void
+{
+    FilamentAsset::register([
+        Css::make('barcode-scanner-field', __DIR__ . '/../resources/css/barcode-scanner-field.css')
+            ->loadedOnRequest(),
+    ], 'marcelorodrigo/filament-barcode-scanner-field');
+}
+```
+
+**In Blade templates:**
+```blade
+<div x-load-css="[@js(\Filament\Support\Facades\FilamentAsset::getStyleHref('barcode-scanner-field', 'marcelorodrigo/filament-barcode-scanner-field'))]">
+```
+
+**Publishable Assets:**
+Enable via `$package->hasAssets()` in `configurePackage()`. Users can customize:
+```bash
+php artisan vendor:publish --tag=filament-barcode-scanner-field-assets
+```
+
+**CSS Conventions:**
+- Use `fi-` prefix for custom CSS classes (e.g., `.fi-barcode-scanner-icon`)
+- CSS loads automatically when component is used (no manual include needed)
+- Assets are located in `resources/css/`
+
 ### File Organization
 
 ```
@@ -186,6 +221,11 @@ src/
 ├── Facades/               # Laravel facades
 ├── Testing/               # Testing traits
 ├── *.php                  # Service providers, main class
+
+resources/
+├── css/                   # CSS assets (auto-loaded via Filament Asset Manager)
+├── lang/                  # Translation files
+└── views/                 # Blade templates
 
 tests/
 ├── Unit/                  # Unit tests (isolated components)
@@ -200,4 +240,5 @@ tests/
 
 - Located in `resources/views/components/`
 - Use `x-load-js` for loading external JavaScript (Alpine.js pattern)
+- Use `x-load-css` for loading package CSS via Filament Asset Manager
 - Component views referenced via `static::$viewNamespace` (e.g., `filament-barcode-scanner-field::components.barcode-input`)
