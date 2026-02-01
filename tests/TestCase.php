@@ -59,6 +59,7 @@ class TestCase extends Orchestra
         $app['config']->set('view.paths', [
             __DIR__ . '/resources/views',
         ]);
+        $app['config']->set('app.key', 'base64:' . base64_encode('ThisIsATestKeyForTestingOnly1234'));
     }
 
     protected function defineDatabaseMigrations(): void

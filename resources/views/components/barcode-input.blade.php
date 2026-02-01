@@ -39,12 +39,6 @@
         :has-inline-label="$hasInlineLabel"
         class="fi-fo-text-input-wrp"
 >
-    <style>
-        .filament-barcode-scanner-field-icon {
-            width: 1.25rem;
-            height: 1.25rem;
-        }
-    </style>
     <div xmlns:x-filament="http://www.w3.org/1999/html"
          x-load-js="['https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js']"
          x-on:close-modal.window="stopScanning()"
@@ -86,7 +80,7 @@
                             class="flex h-full items-center justify-center pr-3 focus:outline-hidden"
                             aria-label="Scan QrCode">
                         <span class="text-gray-400 dark:text-gray-200">
-                            <x-dynamic-component :component="$getIcon()" class="filament-barcode-scanner-field-icon" />
+                            <x-dynamic-component :component="$getIcon()" class="w-5 h-5" />
                         </span>
                     </button>
                 </x-slot>
