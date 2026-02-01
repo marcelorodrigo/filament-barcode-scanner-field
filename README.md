@@ -24,14 +24,61 @@ A powerful barcode scanner input field for Filament applications. This package p
 
 This package includes translations for 31 languages:
 
-**🇪🇺 European (13)**
-🇩🇰 Danish (da) · 🇳🇱 Dutch (nl) · 🇬🇧 English (en) · 🇫🇮 Finnish (fi) · 🇫🇷 French (fr) · 🇩🇪 German (de) · 🇬🇷 Greek (el) · 🇭🇺 Hungarian (hu) · 🇮🇹 Italian (it) · 🇳🇴 Norwegian (no) · 🇵🇱 Polish (pl) · 🇵🇹 Portuguese (pt) · 🇧🇷 Portuguese Brazil (pt_BR) · 🇷🇴 Romanian (ro) · 🇷🇺 Russian (ru) · 🇸🇰 Slovak (sk) · 🇪🇸 Spanish (es) · 🇸🇪 Swedish (sv) · 🇹🇷 Turkish (tr) · 🇺🇦 Ukrainian (uk) · 🇨🇿 Czech (cs)
+**📝 Translation Structure**
+
+All translations follow this structure:
+- `actions.scan_qrcode` - Scan button aria-label
+- `modal.title` - Modal header with `:label` placeholder
+- `modal.default_label` - Default "Barcode" text
+- `modal.close_button` - Close button text
+- `field.placeholder_prefix/suffix` - Placeholder construction
+- `field.default_label` - Field label fallback
+
+**🇪🇺 European (21)**
+
+| Flag | Language | Code |
+|------|----------|------|
+| 🇬🇧 | English | `en` |
+| 🇩🇰 | Danish | `da` |
+| 🇳🇱 | Dutch | `nl` |
+| 🇫🇮 | Finnish | `fi` |
+| 🇫🇷 | French | `fr` |
+| 🇩🇪 | German | `de` |
+| 🇬🇷 | Greek | `el` |
+| 🇭🇺 | Hungarian | `hu` |
+| 🇮🇹 | Italian | `it` |
+| 🇳🇴 | Norwegian | `no` |
+| 🇵🇱 | Polish | `pl` |
+| 🇵🇹 | Portuguese | `pt` |
+| 🇧🇷 | Portuguese (Brazil) | `pt_BR` |
+| 🇷🇴 | Romanian | `ro` |
+| 🇷🇺 | Russian | `ru` |
+| 🇸🇰 | Slovak | `sk` |
+| 🇪🇸 | Spanish | `es` |
+| 🇸🇪 | Swedish | `sv` |
+| 🇹🇷 | Turkish | `tr` |
+| 🇺🇦 | Ukrainian | `uk` |
+| 🇨🇿 | Czech | `cs` |
 
 **🇨🇳 Asian (7)**
-🇨🇳 Chinese Simplified (zh_CN) · 🇹🇼 Chinese Traditional (zh_TW) · 🇮🇩 Indonesian (id) · 🇯🇵 Japanese (ja) · 🇰🇷 Korean (ko) · 🇹🇭 Thai (th) · 🇻🇳 Vietnamese (vi)
 
-**🌍 Middle Eastern & South Asian (4)**
-🇸🇦 Arabic (ar) · 🇮🇳 Hindi (hi) · 🇮🇱 Hebrew (he)
+| Flag | Language | Code |
+|------|----------|------|
+| 🇨🇳 | Chinese (Simplified) | `zh_CN` |
+| 🇹🇼 | Chinese (Traditional) | `zh_TW` |
+| 🇮🇩 | Indonesian | `id` |
+| 🇯🇵 | Japanese | `ja` |
+| 🇰🇷 | Korean | `ko` |
+| 🇹🇭 | Thai | `th` |
+| 🇻🇳 | Vietnamese | `vi` |
+
+**🌍 Middle Eastern & South Asian (3)**
+
+| Flag | Language | Code |
+|------|----------|------|
+| 🇸🇦 | Arabic | `ar` |
+| 🇮🇱 | Hebrew | `he` |
+| 🇮🇳 | Hindi | `hi` |
 
 ### Screenshot
 
