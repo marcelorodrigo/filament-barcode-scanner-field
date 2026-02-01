@@ -1,7 +1,7 @@
 # Filament Barcode Scanner Field
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/marcelorodrigo/filament-barcode-scanner-field.svg?style=flat-square)](https://packagist.org/packages/marcelorodrigo/filament-barcode-scanner-field)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/marcelorodrigo/filament-barcode-scanner-field/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/marcelorodrigo/filament-barcode-scanner-field/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/marcelorodrigo/filament-barcode-scanner-field/run-tests.yml?branch=master&label=tests&style=flat-square)](https://github.com/marcelorodrigo/filament-barcode-scanner-field/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/marcelorodrigo/filament-barcode-scanner-field/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/marcelorodrigo/filament-barcode-scanner-field/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/marcelorodrigo/filament-barcode-scanner-field.svg?style=flat-square)](https://packagist.org/packages/marcelorodrigo/filament-barcode-scanner-field)
 
