@@ -45,11 +45,11 @@ describe('BarcodeInput Integration Tests', function () {
         });
     });
 
-    describe('Tailwind CSS Classes', function () {
-        it('renders icon with Tailwind sizing classes', function () {
+    describe('CSS Classes', function () {
+        it('renders icon with CSS class', function () {
             livewire(TestBarcodeFormComponent::class)
                 ->assertOk()
-                ->assertSee('w-5 h-5', false);
+                ->assertSee('fi-barcode-scanner-icon', false);
         });
 
         it('renders input with full width class', function () {
@@ -61,7 +61,7 @@ describe('BarcodeInput Integration Tests', function () {
         it('renders icon button with flex layout', function () {
             livewire(TestBarcodeFormComponent::class)
                 ->assertOk()
-                ->assertSee('flex h-full items-center', false);
+                ->assertSee('flex items-center justify-center', false);
         });
 
         it('renders input with padding for icon', function () {
