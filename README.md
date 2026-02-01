@@ -5,6 +5,8 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/marcelorodrigo/filament-barcode-scanner-field/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/marcelorodrigo/filament-barcode-scanner-field/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/marcelorodrigo/filament-barcode-scanner-field.svg?style=flat-square)](https://packagist.org/packages/marcelorodrigo/filament-barcode-scanner-field)
 
+![filament-barcode-scanner-field](https://socialify.git.ci/marcelorodrigo/filament-barcode-scanner-field/image?custom_description=Filament+QR%2FBarcode+scanner+field&description=1&font=Raleway&language=1&name=1&owner=1&pattern=Floating+Cogs&theme=Auto)
+
 ## Overview
 
 A powerful barcode scanner input field for Filament applications. This package provides an intuitive interface that allows users to scan barcodes using their device's camera directly from your Filament forms. Built with [html5-qrcode](https://github.com/mebjas/html5-qrcode) for reliable cross-browser barcode scanning.
@@ -267,6 +269,10 @@ Please review [our security policy](https://github.com/marcelorodrigo/filament-b
 
 - [Marcelo Wiebbelling](https://github.com/marcelorodrigo)
 - [All Contributors](../../contributors)
+
+### Inspiration
+
+This package was inspired by [jeffersongoncalves/filament-qrcode-field](https://github.com/jeffersongoncalves/filament-qrcode-field) - a QR code field plugin for Filament. Thank you for the great work!
 
 ## License
 
