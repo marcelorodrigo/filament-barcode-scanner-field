@@ -38,8 +38,7 @@ describe('BarcodeInput Component', function () {
             $component = BarcodeInput::make('barcode')
                 ->icon('heroicon-o-check-circle');
 
-            $attributes = $component->getExtraAttributes();
-            expect($attributes)->toHaveKey('icon', 'heroicon-o-check-circle');
+            expect($component->getIcon())->toBe('heroicon-o-check-circle');
         });
 
         it('sets correct view path', function () {
@@ -123,7 +122,7 @@ describe('BarcodeInput Component', function () {
             expect($component->getName())->toBe('barcode')
                 ->and($component->getLabel())->toBe('Barcode')
                 ->and($component->isRequired())->toBeTrue()
-                ->and($component->getExtraAttributes()['icon'])->toBe('heroicon-o-qr-code');
+                ->and($component->getIcon())->toBe('heroicon-o-qr-code');
         });
 
         it('icon method returns static instance for proper chaining', function () {

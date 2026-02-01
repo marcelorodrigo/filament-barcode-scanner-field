@@ -35,17 +35,15 @@ describe('BarcodeInput UI Tests', function () {
         it('applies default barcode icon', function () {
             $component = BarcodeInput::make('barcode');
 
-            // Default icon should be the built-in SVG (no icon in extra attributes)
-            $attributes = $component->getExtraAttributes();
-            expect($attributes)->not()->toHaveKey('icon');
+            // Default icon should be heroicon-m-qr-code
+            expect($component->getIcon())->toBe('heroicon-m-qr-code');
         });
 
         it('applies custom icon when specified', function () {
             $component = BarcodeInput::make('barcode')
                 ->icon('heroicon-o-check-circle');
 
-            $attributes = $component->getExtraAttributes();
-            expect($attributes)->toHaveKey('icon', 'heroicon-o-check-circle');
+            expect($component->getIcon())->toBe('heroicon-o-check-circle');
         });
 
         it('supports multiple icon types', function () {
@@ -60,8 +58,7 @@ describe('BarcodeInput UI Tests', function () {
                 $component = BarcodeInput::make('barcode')
                     ->icon($icon);
 
-                $attributes = $component->getExtraAttributes();
-                expect($attributes['icon'])->toBe($icon);
+                expect($component->getIcon())->toBe($icon);
             }
         });
 
@@ -69,12 +66,10 @@ describe('BarcodeInput UI Tests', function () {
             $component = BarcodeInput::make('barcode')
                 ->icon('heroicon-o-check-circle');
 
-            $attributes = $component->getExtraAttributes();
-            expect($attributes['icon'])->toBe('heroicon-o-check-circle');
+            expect($component->getIcon())->toBe('heroicon-o-check-circle');
 
             $component->icon('heroicon-o-sparkles');
-            $attributes = $component->getExtraAttributes();
-            expect($attributes['icon'])->toBe('heroicon-o-sparkles');
+            expect($component->getIcon())->toBe('heroicon-o-sparkles');
         });
     });
 
