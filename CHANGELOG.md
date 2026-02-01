@@ -2,6 +2,16 @@
 
 All notable changes to `filament-barcode-scanner-field` will be documented in this file.
 
+## v1.1.2 - 2026-02-01
+
+### What's Changed
+
+* refactor: Move inline CSS to Tailwind utility classes by @marcelorodrigo in https://github.com/marcelorodrigo/filament-barcode-scanner-field/pull/21
+* docs(readme): Improve README documentation structure by @marcelorodrigo in https://github.com/marcelorodrigo/filament-barcode-scanner-field/pull/22
+* feat(i18n): Add complete internationalization support with 30 languages by @marcelorodrigo in https://github.com/marcelorodrigo/filament-barcode-scanner-field/pull/24
+
+**Full Changelog**: https://github.com/marcelorodrigo/filament-barcode-scanner-field/compare/v1.1.1...v1.1.2
+
 ## v1.1.1 - 2026-02-01
 
 ### What's Changed
