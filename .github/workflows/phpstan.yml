@@ -17,9 +17,9 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.5'
+          php-version: '8.3'
           coverage: none
       - name: Install composer dependencies
         run: composer install --no-progress --no-suggest --prefer-dist
       - name: Run PHPStan
-        run: ./vendor/bin/phpstan --error-format=github
+        run: ./vendor/bin/phpstan analyse --error-format=github --memory-limit=2G
