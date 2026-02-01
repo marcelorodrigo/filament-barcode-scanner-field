@@ -2,6 +2,8 @@
 
 namespace Marcelorodrigo\FilamentBarcodeScannerField;
 
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -11,6 +13,13 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
     public static string $name = 'filament-barcode-scanner-field';
 
     public static string $viewNamespace = 'filament-barcode-scanner-field';
+
+    public function packageBooted(): void
+    {
+        FilamentAsset::register([
+            Css::make('barcode-scanner-field', __DIR__ . '/../resources/css/barcode-scanner-field.css')->loadedOnRequest(),
+        ], 'marcelorodrigo/filament-barcode-scanner-field');
+    }
 
     public function configurePackage(Package $package): void
     {
@@ -41,6 +50,10 @@ class FilamentBarcodeScannerFieldServiceProvider extends PackageServiceProvider
 
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
+        }
+
+        if (file_exists($package->basePath('/../resources/css'))) {
+            $package->hasAssets();
         }
     }
 

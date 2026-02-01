@@ -1,5 +1,5 @@
 @php
-    use function Filament\Support\prepare_inherited_attributes;
+    use Filament\Support\Facades\FilamentAsset;use function Filament\Support\prepare_inherited_attributes;
     $fieldWrapperView = $getFieldWrapperView();
     $datalistOptions = $getDatalistOptions();
     $extraAlpineAttributes = $getExtraAlpineAttributes();
@@ -41,6 +41,7 @@
 >
     <div xmlns:x-filament="http://www.w3.org/1999/html"
          x-load-js="['https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js']"
+         x-load-css="[@js(FilamentAsset::getStyleHref('barcode-scanner-field', 'marcelorodrigo/filament-barcode-scanner-field'))]"
          x-on:close-modal.window="stopScanning()"
          x-data="{
         html5QrcodeScanner: null,
@@ -75,13 +76,10 @@
                 <input {{ $inputAttributes->class(['fi-input']) }} />
 
                 <x-slot name="suffix">
-                    <!-- Trigger Button for Filament Modal -->
-                    <button type="button" @click="openScannerModal()"
-                            class="flex h-full items-center justify-center pr-3 focus:outline-hidden"
+                    <button type="button" x-on:click="openScannerModal()"
+                            class="flex items-center justify-center w-9 h-9 -my-2 text-gray-400 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                             aria-label="{{ __('filament-barcode-scanner-field::barcode-scanner-field.actions.scan_qrcode') }}">
-                        <span class="text-gray-400 dark:text-gray-200">
-                            <x-dynamic-component :component="$getIcon()" class="w-5 h-5" />
-                        </span>
+                        <x-dynamic-component :component="$getIcon()" class="fi-barcode-scanner-icon" />
                     </button>
                 </x-slot>
             </x-filament::input.wrapper>
