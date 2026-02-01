@@ -83,7 +83,7 @@
                 <x-slot name="suffix">
                     <!-- Trigger Button for Filament Modal -->
                     <button type="button" @click="openScannerModal()"
-                            class="flex items-center pr-3 focus:outline-hidden"
+                            class="flex h-full items-center justify-center pr-3 focus:outline-hidden"
                             aria-label="Scan QrCode">
                         <span class="text-gray-400 dark:text-gray-200">
                             <x-dynamic-component :component="$getIcon()" class="filament-barcode-scanner-field-icon" />
