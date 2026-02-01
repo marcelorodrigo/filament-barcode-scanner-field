@@ -1,16 +1,27 @@
 {
     "name": "marcelorodrigo/filament-barcode-scanner-field",
-    "description": "This is my package filament-barcode-scanner-field",
+    "description": "A camera-based barcode and QR code scanner input field for Filament forms. Features a modal interface with real-time scanning.",
     "keywords": [
         "marcelorodrigo",
         "laravel",
         "filamentphp",
-        "filament-barcode-scanner-field"
+        "filament",
+        "barcode",
+        "qrcode",
+        "qr-code",
+        "scanner",
+        "camera-scanner",
+        "input",
+        "field",
+        "form",
+        "input-field",
+        "barcode-scanner"
     ],
     "homepage": "https://github.com/marcelorodrigo/filament-barcode-scanner-field",
     "support": {
         "issues": "https://github.com/marcelorodrigo/filament-barcode-scanner-field/issues",
-        "source": "https://github.com/marcelorodrigo/filament-barcode-scanner-field"
+        "source": "https://github.com/marcelorodrigo/filament-barcode-scanner-field",
+        "docs": "https://github.com/marcelorodrigo/filament-barcode-scanner-field#readme"
     },
     "license": "MIT",
     "type": "library",
@@ -19,6 +30,12 @@
             "name": "Marcelo Wiebbelling",
             "email": "mrodrigow@gmail.com",
             "role": "Developer"
+        }
+    ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/marcelorodrigo"
         }
     ],
     "require": {
@@ -39,6 +56,9 @@
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
         "rector/rector": "^2.3"
+    },
+    "suggest": {
+        "filament/filament": "Required to use this package with Filament admin panels"
     },
     "autoload": {
         "psr-4": {
