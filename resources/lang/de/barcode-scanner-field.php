@@ -3,16 +3,16 @@
 // translations for Marcelorodrigo/FilamentBarcodeScannerField
 return [
     'actions' => [
-        'scan_qrcode' => 'Scan QrCode',
+        'scan_qrcode' => 'QR-Code scannen',
     ],
     'modal' => [
-        'title' => 'Scan :label',
+        'title' => ':label scannen',
         'default_label' => 'Barcode',
-        'close_button' => 'Close',
+        'close_button' => 'Schließen',
     ],
     'field' => [
-        'placeholder_prefix' => 'Enter ',
-        'placeholder_suffix' => '...',
+        'placeholder_prefix' => '',
+        'placeholder_suffix' => ' eingeben...',
         'default_label' => 'Barcode',
     ],
 ];

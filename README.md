@@ -18,7 +18,6 @@ A powerful barcode scanner input field for Filament applications. This package p
 - **Filament Native**: Extends Filament's TextInput with full form validation support
 - **Livewire Integration**: Automatically updates form state when barcode is scanned
 - **Filament v4 & v5 Compatible**: Works with both Filament versions
-
 ### Screenshot
 
 ![Filament Barcode Scanner Field](assets/screenshot-barcode.png)
@@ -124,6 +123,67 @@ BarcodeInput::make('barcode')
     ->live()
     ->afterStateUpdated(fn ($state) => $this->lookupProduct($state));
 ```
+
+### Supported Languages
+
+This package includes translations for **31 languages**:
+
+**📝 Translation Structure**
+
+All translations follow this structure:
+- `actions.scan_qrcode` - Scan button aria-label
+- `modal.title` - Modal header with `:label` placeholder
+- `modal.default_label` - Default "Barcode" text
+- `modal.close_button` - Close button text
+- `field.placeholder_prefix/suffix` - Placeholder construction
+- `field.default_label` - Field label fallback
+
+**🇪🇺 European (21)**
+- 🇬🇧 English (`en`)
+- 🇩🇰 Danish (`da`)
+- 🇳🇱 Dutch (`nl`)
+- 🇫🇮 Finnish (`fi`)
+- 🇫🇷 French (`fr`)
+- 🇩🇪 German (`de`)
+- 🇬🇷 Greek (`el`)
+- 🇭🇺 Hungarian (`hu`)
+- 🇮🇹 Italian (`it`)
+- 🇳🇴 Norwegian (`no`)
+- 🇵🇱 Polish (`pl`)
+- 🇵🇹 Portuguese (`pt`)
+- 🇧🇷 Portuguese Brazil (`pt_BR`)
+- 🇷🇴 Romanian (`ro`)
+- 🇷🇺 Russian (`ru`)
+- 🇸🇰 Slovak (`sk`)
+- 🇪🇸 Spanish (`es`)
+- 🇸🇪 Swedish (`sv`)
+- 🇹🇷 Turkish (`tr`)
+- 🇺🇦 Ukrainian (`uk`)
+- 🇨🇿 Czech (`cs`)
+
+**🇨🇳 Asian (7)**
+- 🇨🇳 Chinese Simplified (`zh_CN`)
+- 🇹🇼 Chinese Traditional (`zh_TW`)
+- 🇮🇩 Indonesian (`id`)
+- 🇯🇵 Japanese (`ja`)
+- 🇰🇷 Korean (`ko`)
+- 🇹🇭 Thai (`th`)
+- 🇻🇳 Vietnamese (`vi`)
+
+**🌍 Middle Eastern & South Asian (3)**
+- 🇸🇦 Arabic (`ar`)
+- 🇮🇱 Hebrew (`he`)
+- 🇮🇳 Hindi (`hi`)
+
+### Publishing Translations
+
+To customize translations or add new languages:
+
+```bash
+php artisan vendor:publish --tag="filament-barcode-scanner-field-translations"
+```
+
+Translation files will be published to `resources/lang/vendor/filament-barcode-scanner-field/`.
 
 ## Advanced Usage
 

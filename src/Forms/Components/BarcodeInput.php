@@ -16,13 +16,17 @@ class BarcodeInput extends TextInput
     {
         parent::setUp();
 
-        $label = $this->getLabel() ?? 'Barcode';
+        $label = $this->getLabel() ?? __('filament-barcode-scanner-field::barcode-scanner-field.field.default_label');
         if ($label instanceof Htmlable) {
             $label = $label->toHtml();
         }
 
         $label = strtolower((string) $label);
-        $this->placeholder('Enter ' . $label . '...');
+        $this->placeholder(
+            __('filament-barcode-scanner-field::barcode-scanner-field.field.placeholder_prefix')
+            . $label
+            . __('filament-barcode-scanner-field::barcode-scanner-field.field.placeholder_suffix')
+        );
     }
 
     public function icon(string $icon): static
