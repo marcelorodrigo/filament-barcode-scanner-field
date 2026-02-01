@@ -1,6 +1,2 @@
 parameters:
     ignoreErrors:
-        -
-            message: '#Property .* does not accept default value of type string#'
-            path: src/Forms/Components/BarcodeInput.php
-

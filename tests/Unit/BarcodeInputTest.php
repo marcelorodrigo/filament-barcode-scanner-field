@@ -24,12 +24,11 @@ describe('BarcodeInput Unit Tests', function () {
     });
 
     describe('Icon Configuration', function () {
-        it('adds icon to extra attributes via icon method', function () {
+        it('sets icon via icon method', function () {
             $component = BarcodeInput::make('barcode')
                 ->icon('heroicon-o-sparkles');
 
-            $attributes = $component->getExtraAttributes();
-            expect($attributes['icon'])->toBe('heroicon-o-sparkles');
+            expect($component->getIcon())->toBe('heroicon-o-sparkles');
         });
 
         it('returns static instance for method chaining', function () {
@@ -45,17 +44,23 @@ describe('BarcodeInput Unit Tests', function () {
                 ->icon('heroicon-o-sparkles')
                 ->icon('heroicon-o-check-circle');
 
-            $attributes = $component->getExtraAttributes();
-            expect($attributes['icon'])->toBe('heroicon-o-check-circle');
+            expect($component->getIcon())->toBe('heroicon-o-check-circle');
         });
 
-        it('icon method preserves other extra attributes', function () {
+        it('returns default icon when none set', function () {
+            $component = BarcodeInput::make('barcode');
+
+            expect($component->getIcon())->toBe('heroicon-m-qr-code');
+        });
+
+        it('icon method does not affect extra attributes', function () {
             $component = BarcodeInput::make('barcode')
+                ->extraAttributes(['class' => 'custom-class'])
                 ->icon('heroicon-o-sparkles');
 
             $attributes = $component->getExtraAttributes();
-            expect($attributes)
-                ->toHaveKey('icon', 'heroicon-o-sparkles');
+            expect($attributes)->not->toHaveKey('icon');
+            expect($attributes)->toHaveKey('class', 'custom-class');
         });
     });
 
@@ -101,7 +106,7 @@ describe('BarcodeInput Unit Tests', function () {
             expect($component->getLabel())->toBe('Barcode');
             expect($component->isRequired())->toBeTrue();
             expect($component->isDisabled())->toBeTrue();
-            expect($component->getExtraAttributes()['icon'])->toBe('heroicon-o-qr-code');
+            expect($component->getIcon())->toBe('heroicon-o-qr-code');
         });
     });
 
@@ -153,13 +158,14 @@ describe('BarcodeInput Unit Tests', function () {
             expect($attributes['data-test'])->toBe('value');
         });
 
-        it('merges icon into extra attributes', function () {
+        it('icon is stored separately from extra attributes', function () {
             $component = BarcodeInput::make('barcode')
                 ->extraAttributes(['class' => 'custom-class'])
                 ->icon('heroicon-o-pencil');
 
-            $attributes = $component->getExtraAttributes();
-            expect($attributes)->toHaveKey('icon', 'heroicon-o-pencil');
+            expect($component->getIcon())->toBe('heroicon-o-pencil');
+            expect($component->getExtraAttributes())->not->toHaveKey('icon');
+            expect($component->getExtraAttributes())->toHaveKey('class', 'custom-class');
         });
     });
 });
