@@ -4,7 +4,7 @@ namespace Marcelorodrigo\FilamentBarcodeScannerField\Tests\Livewire;
 
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Livewire\Component;
 use Marcelorodrigo\FilamentBarcodeScannerField\Forms\Components\BarcodeInput;
 
@@ -16,7 +16,7 @@ class TestBarcodeFormComponent extends Component implements HasForms
 
     public string $productCode = '';
 
-    public function form(Form $form): Form
+    public function form(Schema $form): Schema
     {
         return $form
             ->schema([

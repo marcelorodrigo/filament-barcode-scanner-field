@@ -7,9 +7,6 @@ use Illuminate\Contracts\Support\Htmlable;
 
 class BarcodeInput extends TextInput
 {
-    /**
-     * @var view-string
-     */
     protected string $view = 'filament-barcode-scanner-field::components.barcode-input';
 
     protected ?string $icon = null;

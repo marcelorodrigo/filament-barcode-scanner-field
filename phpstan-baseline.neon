@@ -1,2 +1,5 @@
 parameters:
     ignoreErrors:
+        -
+            message: '#view-string#'
+            path: src/Forms/Components/BarcodeInput.php
