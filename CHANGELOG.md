@@ -2,6 +2,15 @@
 
 All notable changes to `filament-barcode-scanner-field` will be documented in this file.
 
+## v1.1.3 - 2026-02-01
+
+### What's Changed
+
+* docs(readme): Add Socialify banner and inspiration credits by @marcelorodrigo in https://github.com/marcelorodrigo/filament-barcode-scanner-field/pull/25
+* fix(icon): Resolve icon visibility issue with CSS registration by @marcelorodrigo in https://github.com/marcelorodrigo/filament-barcode-scanner-field/pull/26
+
+**Full Changelog**: https://github.com/marcelorodrigo/filament-barcode-scanner-field/compare/v1.1.2...v1.1.3
+
 ## v1.1.2 - 2026-02-01
 
 ### What's Changed
