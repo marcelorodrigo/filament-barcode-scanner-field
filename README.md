@@ -22,7 +22,7 @@ A powerful barcode scanner input field for Filament applications. This package p
 
 ### Supported Languages
 
-This package includes translations for 31 languages:
+This package includes translations for **31 languages**:
 
 **📝 Translation Structure**
 
@@ -35,50 +35,41 @@ All translations follow this structure:
 - `field.default_label` - Field label fallback
 
 **🇪🇺 European (21)**
-
-| Flag | Language | Code |
-|------|----------|------|
-| 🇬🇧 | English | `en` |
-| 🇩🇰 | Danish | `da` |
-| 🇳🇱 | Dutch | `nl` |
-| 🇫🇮 | Finnish | `fi` |
-| 🇫🇷 | French | `fr` |
-| 🇩🇪 | German | `de` |
-| 🇬🇷 | Greek | `el` |
-| 🇭🇺 | Hungarian | `hu` |
-| 🇮🇹 | Italian | `it` |
-| 🇳🇴 | Norwegian | `no` |
-| 🇵🇱 | Polish | `pl` |
-| 🇵🇹 | Portuguese | `pt` |
-| 🇧🇷 | Portuguese (Brazil) | `pt_BR` |
-| 🇷🇴 | Romanian | `ro` |
-| 🇷🇺 | Russian | `ru` |
-| 🇸🇰 | Slovak | `sk` |
-| 🇪🇸 | Spanish | `es` |
-| 🇸🇪 | Swedish | `sv` |
-| 🇹🇷 | Turkish | `tr` |
-| 🇺🇦 | Ukrainian | `uk` |
-| 🇨🇿 | Czech | `cs` |
+- 🇬🇧 English (`en`)
+- 🇩🇰 Danish (`da`)
+- 🇳🇱 Dutch (`nl`)
+- 🇫🇮 Finnish (`fi`)
+- 🇫🇷 French (`fr`)
+- 🇩🇪 German (`de`)
+- 🇬🇷 Greek (`el`)
+- 🇭🇺 Hungarian (`hu`)
+- 🇮🇹 Italian (`it`)
+- 🇳🇴 Norwegian (`no`)
+- 🇵🇱 Polish (`pl`)
+- 🇵🇹 Portuguese (`pt`)
+- 🇧🇷 Portuguese Brazil (`pt_BR`)
+- 🇷🇴 Romanian (`ro`)
+- 🇷🇺 Russian (`ru`)
+- 🇸🇰 Slovak (`sk`)
+- 🇪🇸 Spanish (`es`)
+- 🇸🇪 Swedish (`sv`)
+- 🇹🇷 Turkish (`tr`)
+- 🇺🇦 Ukrainian (`uk`)
+- 🇨🇿 Czech (`cs`)
 
 **🇨🇳 Asian (7)**
-
-| Flag | Language | Code |
-|------|----------|------|
-| 🇨🇳 | Chinese (Simplified) | `zh_CN` |
-| 🇹🇼 | Chinese (Traditional) | `zh_TW` |
-| 🇮🇩 | Indonesian | `id` |
-| 🇯🇵 | Japanese | `ja` |
-| 🇰🇷 | Korean | `ko` |
-| 🇹🇭 | Thai | `th` |
-| 🇻🇳 | Vietnamese | `vi` |
+- 🇨🇳 Chinese Simplified (`zh_CN`)
+- 🇹🇼 Chinese Traditional (`zh_TW`)
+- 🇮🇩 Indonesian (`id`)
+- 🇯🇵 Japanese (`ja`)
+- 🇰🇷 Korean (`ko`)
+- 🇹🇭 Thai (`th`)
+- 🇻🇳 Vietnamese (`vi`)
 
 **🌍 Middle Eastern & South Asian (3)**
-
-| Flag | Language | Code |
-|------|----------|------|
-| 🇸🇦 | Arabic | `ar` |
-| 🇮🇱 | Hebrew | `he` |
-| 🇮🇳 | Hindi | `hi` |
+- 🇸🇦 Arabic (`ar`)
+- 🇮🇱 Hebrew (`he`)
+- 🇮🇳 Hindi (`hi`)
 
 ### Screenshot
 
