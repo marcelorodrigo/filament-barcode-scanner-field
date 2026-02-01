@@ -18,6 +18,20 @@ A powerful barcode scanner input field for Filament applications. This package p
 - **Filament Native**: Extends Filament's TextInput with full form validation support
 - **Livewire Integration**: Automatically updates form state when barcode is scanned
 - **Filament v4 & v5 Compatible**: Works with both Filament versions
+- **Internationalization**: Full i18n support with 31 languages
+
+### Supported Languages
+
+This package includes translations for 31 languages:
+
+**🇪🇺 European (13)**
+🇩🇰 Danish (da) · 🇳🇱 Dutch (nl) · 🇬🇧 English (en) · 🇫🇮 Finnish (fi) · 🇫🇷 French (fr) · 🇩🇪 German (de) · 🇬🇷 Greek (el) · 🇭🇺 Hungarian (hu) · 🇮🇹 Italian (it) · 🇳🇴 Norwegian (no) · 🇵🇱 Polish (pl) · 🇵🇹 Portuguese (pt) · 🇧🇷 Portuguese Brazil (pt_BR) · 🇷🇴 Romanian (ro) · 🇷🇺 Russian (ru) · 🇸🇰 Slovak (sk) · 🇪🇸 Spanish (es) · 🇸🇪 Swedish (sv) · 🇹🇷 Turkish (tr) · 🇺🇦 Ukrainian (uk) · 🇨🇿 Czech (cs)
+
+**🇨🇳 Asian (7)**
+🇨🇳 Chinese Simplified (zh_CN) · 🇹🇼 Chinese Traditional (zh_TW) · 🇮🇩 Indonesian (id) · 🇯🇵 Japanese (ja) · 🇰🇷 Korean (ko) · 🇹🇭 Thai (th) · 🇻🇳 Vietnamese (vi)
+
+**🌍 Middle Eastern & South Asian (4)**
+🇸🇦 Arabic (ar) · 🇮🇳 Hindi (hi) · 🇮🇱 Hebrew (he)
 
 ### Screenshot
 
@@ -56,6 +70,16 @@ Optionally, you can publish the views using:
 ```bash
 php artisan vendor:publish --tag="filament-barcode-scanner-field-views"
 ```
+
+### Publishing Translations
+
+To customize translations or add new languages:
+
+```bash
+php artisan vendor:publish --tag="filament-barcode-scanner-field-translations"
+```
+
+Translation files will be published to `resources/lang/vendor/filament-barcode-scanner-field/`.
 
 ## Usage
 

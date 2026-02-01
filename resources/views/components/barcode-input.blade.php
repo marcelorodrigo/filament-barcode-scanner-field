@@ -78,7 +78,7 @@
                     <!-- Trigger Button for Filament Modal -->
                     <button type="button" @click="openScannerModal()"
                             class="flex h-full items-center justify-center pr-3 focus:outline-hidden"
-                            aria-label="Scan QrCode">
+                            aria-label="{{ __('filament-barcode-scanner-field::barcode-scanner-field.actions.scan_qrcode') }}">
                         <span class="text-gray-400 dark:text-gray-200">
                             <x-dynamic-component :component="$getIcon()" class="w-5 h-5" />
                         </span>
@@ -92,7 +92,7 @@
         <x-filament::modal id="qrcode-scanner-modal-{{ $getName() }}" width="lg" :close-by-clicking-away="false">
             <x-slot name="header">
                 <h2 class="text-lg font-semibold">
-                    Scan {{ $getLabel() ?? 'Barcode' }}
+                    {{ __('filament-barcode-scanner-field::barcode-scanner-field.modal.title', ['label' => $getLabel() ?? __('filament-barcode-scanner-field::barcode-scanner-field.modal.default_label')]) }}
                 </h2>
             </x-slot>
 
@@ -104,7 +104,7 @@
 
             <x-slot name="footer">
                 <x-filament::button @click="closeScannerModal()" color="danger">
-                    Close
+                    {{ __('filament-barcode-scanner-field::barcode-scanner-field.modal.close_button') }}
                 </x-filament::button>
             </x-slot>
         </x-filament::modal>
