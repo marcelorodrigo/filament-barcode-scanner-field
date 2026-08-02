@@ -1,5 +1,6 @@
 <?php
 
+use Filament\Forms\Components\TextInput;
 use Marcelorodrigo\FilamentBarcodeScannerField\Forms\Components\BarcodeInput;
 
 describe('BarcodeInput Component', function () {
@@ -10,11 +11,10 @@ describe('BarcodeInput Component', function () {
             expect($component->getName())->toBe('barcode');
         });
 
-        it('renders modal id based on field name', function () {
+        it('registers a scanner action for the field', function () {
             $component = BarcodeInput::make('barcode');
 
-            // The modal id is generated in the view using the field name
-            expect($component->getName())->toBe('barcode');
+            expect($component->getSuffixActions())->toHaveKey('scanBarcode');
         });
     });
 
@@ -41,10 +41,11 @@ describe('BarcodeInput Component', function () {
             expect($component->getIcon())->toBe('heroicon-o-check-circle');
         });
 
-        it('sets correct view path', function () {
+        it('uses text input semantics for barcode identifiers', function () {
             $component = BarcodeInput::make('barcode');
 
-            expect($component->getView())->toBe('filament-barcode-scanner-field::components.barcode-input');
+            expect($component->getInputMode())->toBe('numeric')
+                ->and($component->getType())->toBe('text');
         });
     });
 
@@ -52,7 +53,7 @@ describe('BarcodeInput Component', function () {
         it('extends TextInput component', function () {
             $component = BarcodeInput::make('barcode');
 
-            expect($component)->toBeInstanceOf(\Filament\Forms\Components\TextInput::class);
+            expect($component)->toBeInstanceOf(TextInput::class);
         });
 
         it('supports validation rules from TextInput', function () {

@@ -16,10 +16,11 @@ describe('BarcodeInput Unit Tests', function () {
             expect($component->getName())->toBe('barcode');
         });
 
-        it('has correct view', function () {
+        it('uses a numeric input mode without numeric state casting', function () {
             $component = BarcodeInput::make('barcode');
 
-            expect($component->getView())->toBe('filament-barcode-scanner-field::components.barcode-input');
+            expect($component->getInputMode())->toBe('numeric')
+                ->and($component->getType())->toBe('text');
         });
     });
 
@@ -111,6 +112,12 @@ describe('BarcodeInput Unit Tests', function () {
     });
 
     describe('TextInput Inheritance', function () {
+        it('registers the scanner as a suffix action', function () {
+            $component = BarcodeInput::make('barcode');
+
+            expect($component->getSuffixActions())->toHaveKey('scanBarcode');
+        });
+
         it('inherits TextInput properties', function () {
             $component = BarcodeInput::make('barcode');
 

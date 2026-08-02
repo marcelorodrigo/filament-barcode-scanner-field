@@ -1,5 +1,6 @@
 <?php
 
+use Filament\Forms\Components\TextInput;
 use Marcelorodrigo\FilamentBarcodeScannerField\Forms\Components\BarcodeInput;
 
 describe('BarcodeInput UI Tests', function () {
@@ -99,17 +100,18 @@ describe('BarcodeInput UI Tests', function () {
     });
 
     describe('View Rendering', function () {
-        it('uses correct Blade view', function () {
+        it('registers the scanner as a native suffix action', function () {
             $component = BarcodeInput::make('barcode');
 
-            expect($component->getView())->toBe('filament-barcode-scanner-field::components.barcode-input');
+            expect($component->getSuffixActions())->toHaveKey('scanBarcode');
         });
 
-        it('view path is consistent across instances', function () {
+        it('registers a scanner action for each instance', function () {
             $component1 = BarcodeInput::make('barcode');
             $component2 = BarcodeInput::make('productCode');
 
-            expect($component1->getView())->toBe($component2->getView());
+            expect($component1->getSuffixActions())->toHaveKey('scanBarcode')
+                ->and($component2->getSuffixActions())->toHaveKey('scanBarcode');
         });
     });
 
@@ -117,7 +119,7 @@ describe('BarcodeInput UI Tests', function () {
         it('extends Filament TextInput component', function () {
             $component = BarcodeInput::make('barcode');
 
-            expect($component)->toBeInstanceOf(\Filament\Forms\Components\TextInput::class);
+            expect($component)->toBeInstanceOf(TextInput::class);
         });
 
         it('supports form schema integration', function () {

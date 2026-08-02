@@ -108,9 +108,13 @@ BarcodeInput::make('barcode')
 | `placeholder(string \| Htmlable \| null $placeholder)` | Set input placeholder | `"Enter {label}..."` |
 | `required(bool \| string $condition = true)` | Make the field required | `false` |
 
-### Standard Filament Methods
+### Barcode Input Behavior
 
-Since `BarcodeInput` extends `TextInput`, all standard Filament field methods are supported:
+`BarcodeInput` retains Filament's native `TextInput` renderer, so standard text-input configuration such as validation, datalists, autocomplete, masks, and prefix/suffix actions renders normally.
+
+Barcode values are digit strings, not numeric quantities. The component uses a text input with a numeric keyboard hint so scanned and manually entered values retain leading zeroes. Do not use `numeric()` for barcode identifiers, because it uses a number input and casts the field state.
+
+When using `BarcodeInput` outside a Filament panel, ensure the containing Livewire view renders `<x-filament-actions::modals />` so the scanner action can open its modal.
 
 ```php
 BarcodeInput::make('barcode')
