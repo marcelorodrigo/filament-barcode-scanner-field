@@ -10,12 +10,6 @@ on:
       - 'pint.json'
       - '.github/workflows/pint-check.yml'
   pull_request:
-    paths:
-      - '**.php'
-      - 'composer.json'
-      - 'composer.lock'
-      - 'pint.json'
-      - '.github/workflows/pint-check.yml'
 
 permissions:
   contents: read
@@ -30,12 +24,26 @@ jobs:
         with:
           show-progress: 'false'
           fetch-depth: '1'
+      - name: Check for relevant changes
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            src:
+              - '**.php'
+              - 'composer.json'
+              - 'composer.lock'
+              - 'pint.json'
+              - '.github/workflows/pint-check.yml'
       - name: Setup PHP
+        if: steps.changes.outputs.src == 'true'
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
           coverage: none
       - name: Install composer dependencies
+        if: steps.changes.outputs.src == 'true'
         run: composer install --no-progress --no-suggest --prefer-dist
       - name: Check PHP code style
+        if: steps.changes.outputs.src == 'true'
         run: composer test:lint

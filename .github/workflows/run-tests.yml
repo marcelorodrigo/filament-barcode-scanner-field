@@ -13,14 +13,6 @@ on:
       - '.github/workflows/run-tests.yml'
   pull_request:
     branches: [master]
-    paths:
-      - '**.php'
-      - 'resources/**'
-      - 'composer.json'
-      - 'composer.lock'
-      - 'phpunit.xml.dist'
-      - 'phpunit.ci.xml'
-      - '.github/workflows/run-tests.yml'
 
 jobs:
   test:

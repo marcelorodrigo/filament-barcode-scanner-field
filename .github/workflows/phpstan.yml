@@ -10,14 +10,6 @@ on:
       - 'phpstan-baseline.neon'
       - '.github/workflows/phpstan.yml'
   pull_request:
-    paths:
-      - '**.php'
-      - 'composer.json'
-      - 'composer.lock'
-      - 'config/**'
-      - 'phpstan.neon.dist'
-      - 'phpstan-baseline.neon'
-      - '.github/workflows/phpstan.yml'
 permissions:
   contents: read
 jobs:
@@ -30,12 +22,28 @@ jobs:
           fetch-tags: 'false'
           show-progress: 'false'
           fetch-depth: '1'
+      - name: Check for relevant changes
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            src:
+              - '**.php'
+              - 'composer.json'
+              - 'composer.lock'
+              - 'config/**'
+              - 'phpstan.neon.dist'
+              - 'phpstan-baseline.neon'
+              - '.github/workflows/phpstan.yml'
       - name: Setup PHP
+        if: steps.changes.outputs.src == 'true'
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
           coverage: none
       - name: Install composer dependencies
+        if: steps.changes.outputs.src == 'true'
         run: composer install --no-progress --no-suggest --prefer-dist
       - name: Run PHPStan
+        if: steps.changes.outputs.src == 'true'
         run: ./vendor/bin/phpstan analyse --error-format=github --memory-limit=2G
