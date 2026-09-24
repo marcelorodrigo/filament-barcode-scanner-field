@@ -3,6 +3,14 @@ name: "Run Tests"
 on:
   push:
     branches: [master]
+    paths:
+      - '**.php'
+      - 'resources/**'
+      - 'composer.json'
+      - 'composer.lock'
+      - 'phpunit.xml.dist'
+      - 'phpunit.ci.xml'
+      - '.github/workflows/run-tests.yml'
   pull_request:
     branches: [master]
 
@@ -35,7 +43,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
-          coverage: true
+          coverage: none
 
       - name: Setup problem matchers
         run: |
