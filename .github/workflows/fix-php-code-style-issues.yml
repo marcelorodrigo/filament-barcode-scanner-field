@@ -1,8 +1,12 @@
 name: "Fix PHP Code Styling"
 on:
   push:
+    branches: [master]
     paths:
       - '**.php'
+      - 'composer.json'
+      - 'composer.lock'
+      - 'pint.json'
 permissions:
   contents: write
 jobs:
@@ -12,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.head_ref }}
+          show-progress: 'false'
       - name: Fix PHP code style issues
         uses: aglipanci/laravel-pint-action@2.6
       - name: Commit changes

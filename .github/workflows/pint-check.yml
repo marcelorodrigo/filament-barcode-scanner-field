@@ -1,33 +1,33 @@
-name: PHPStan
+name: "Check PHP Code Style"
+
 on:
   push:
+    branches: [master]
     paths:
       - '**.php'
       - 'composer.json'
       - 'composer.lock'
-      - 'config/**'
-      - 'phpstan.neon.dist'
-      - 'phpstan-baseline.neon'
-      - '.github/workflows/phpstan.yml'
+      - 'pint.json'
+      - '.github/workflows/pint-check.yml'
   pull_request:
     paths:
       - '**.php'
       - 'composer.json'
       - 'composer.lock'
-      - 'config/**'
-      - 'phpstan.neon.dist'
-      - 'phpstan-baseline.neon'
-      - '.github/workflows/phpstan.yml'
+      - 'pint.json'
+      - '.github/workflows/pint-check.yml'
+
 permissions:
   contents: read
+
 jobs:
-  phpstan:
-    name: PHPStan Analysis
+  pint:
+    name: Pint Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - name: Checkout code
+        uses: actions/checkout@v7
         with:
-          fetch-tags: 'false'
           show-progress: 'false'
           fetch-depth: '1'
       - name: Setup PHP
@@ -37,5 +37,5 @@ jobs:
           coverage: none
       - name: Install composer dependencies
         run: composer install --no-progress --no-suggest --prefer-dist
-      - name: Run PHPStan
-        run: ./vendor/bin/phpstan analyse --error-format=github --memory-limit=2G
+      - name: Check PHP code style
+        run: composer test:lint

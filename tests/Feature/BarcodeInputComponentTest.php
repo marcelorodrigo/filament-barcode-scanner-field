@@ -1,5 +1,6 @@
 <?php
 
+use Filament\Forms\Components\TextInput;
 use Marcelorodrigo\FilamentBarcodeScannerField\Forms\Components\BarcodeInput;
 
 describe('BarcodeInput Component', function () {
@@ -52,7 +53,7 @@ describe('BarcodeInput Component', function () {
         it('extends TextInput component', function () {
             $component = BarcodeInput::make('barcode');
 
-            expect($component)->toBeInstanceOf(\Filament\Forms\Components\TextInput::class);
+            expect($component)->toBeInstanceOf(TextInput::class);
         });
 
         it('supports validation rules from TextInput', function () {
