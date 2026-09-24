@@ -26,7 +26,7 @@ jobs:
           fetch-depth: '1'
       - name: Check for relevant changes
         id: changes
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         with:
           filters: |
             src:
